@@ -1,4 +1,4 @@
-const path = requiere('path');
+const path = require('path');
 
 const express = require('express');
 const { dbConnection } = require('./database/config');
