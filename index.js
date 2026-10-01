@@ -1,3 +1,5 @@
+const path = requiere('path');
+
 const express = require('express');
 const { dbConnection } = require('./database/config');
 const cors = require('cors');
@@ -24,7 +26,9 @@ app.use(express.json())
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/events', require('./routes/events'));
 
-
+app.use('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/index.html'));
+});
 
 //Escuchar peticiones
 app.listen(process.env.PORT, () => {
